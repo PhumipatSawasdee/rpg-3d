@@ -2009,7 +2009,7 @@ GameObject:
   - component: {fileID: 7157365282570762396}
   - component: {fileID: 8210117023705944329}
   - component: {fileID: 3075848772401165668}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Character_Skeleton_Slave_01 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

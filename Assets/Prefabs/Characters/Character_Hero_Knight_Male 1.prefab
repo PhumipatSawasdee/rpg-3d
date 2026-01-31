@@ -2909,7 +2909,7 @@ GameObject:
   - component: {fileID: -3944223634519560622}
   - component: {fileID: 2285318957942487591}
   - component: {fileID: 7211489833718086395}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Character_Hero_Knight_Male 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
