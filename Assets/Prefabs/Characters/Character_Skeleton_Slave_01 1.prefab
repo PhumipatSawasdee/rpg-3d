@@ -2009,6 +2009,7 @@ GameObject:
   - component: {fileID: 7157365282570762396}
   - component: {fileID: 8210117023705944329}
   - component: {fileID: 3075848772401165668}
+  - component: {fileID: -7251468725566752880}
   m_Layer: 6
   m_Name: Character_Skeleton_Slave_01 1
   m_TagString: Untagged
@@ -2130,6 +2131,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   state: 0
   ringSelection: {fileID: 4270150946057021105}
+  curHP: 10
+  curCharTarget: {fileID: 0}
+  attackRange: 2
+  attackDamage: 3
+  attackCoolDown: 2
+  attackTimer: 0
+  findingRange: 20
 --- !u!114 &3075848772401165668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2142,6 +2150,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2f7edad6329f4e4798693de8681b6af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharAnimation
+--- !u!114 &-7251468725566752880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 142548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd900131f6030c6469dd3bf608dd0427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AttackAI
+  curEnemy: {fileID: 0}
 --- !u!1 &145006
 GameObject:
   m_ObjectHideFlags: 0
@@ -5070,7 +5091,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1107157273978836427, guid: 024c2f9419faa1d4e9633e22d30d4775, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2578521146470503909, guid: 024c2f9419faa1d4e9633e22d30d4775, type: 3}
       propertyPath: m_LocalScale.x
