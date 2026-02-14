@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LeftClick : MonoBehaviour
 {
@@ -6,38 +7,61 @@ public class LeftClick : MonoBehaviour
 
     private Camera cam;
 
-    [SerializeField] private Character curChar;
-    public Character CurChar { get { return curChar; } }
-
     [SerializeField] private LayerMask layerMask;
+
+    [SerializeField] private RectTransform boxSelection;
+    private Vector2 oldAnchoredPos;
+    private Vector2 startPos;
 
     private void Start()
     {
         instance = this;
         cam = Camera.main;
         layerMask = LayerMask.GetMask("Ground", "Character", "Building", "Item");
+
+        boxSelection = UIManager.instance.SelectionBox;
     }
 
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            startPos = Input.mousePosition;
+
+            // If click UI, don't clear
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             ClearEverthing();
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            // If click UI, don't check
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
+            UpdateSelectionBox(Input.mousePosition);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
+            ReleaseSelectionBox(Input.mousePosition);
             TrySelect(Input.mousePosition);
         }
     }
 
     private void SelectCharacter(RaycastHit hit)
     {
-        curChar = hit.collider.GetComponent<Character>();
+        Character hero = hit.collider.GetComponent<Character>();
         Debug.Log($"Selected Char: {hit.collider.gameObject}");
 
-        if (curChar != null)
-            curChar.ToggleRingSelection(true);
+        PartyManager.instance.SelectChars.Add(hero);
+        hero.ToggleRingSelection(true);
     }
 
     private void TrySelect(Vector2 screenPos)
@@ -57,14 +81,68 @@ public class LeftClick : MonoBehaviour
         }
     }
 
+    private void UpdateSelectionBox(Vector2 mousePos)
+    {
+        if (!boxSelection.gameObject.activeInHierarchy) boxSelection.gameObject.SetActive(true);
+
+        float width = mousePos.x - startPos.x;
+        //Debug.Log($"Update Selection Box : ({width}) => {mousePos.x} - {startPos.x}");
+        float height = mousePos.y - startPos.y;
+        //Debug.Log($"Update Selection Box : ({height}) => {mousePos.y} - {startPos.y}");
+
+        boxSelection.anchoredPosition = startPos + new Vector2(width / 2, height / 2);
+
+        width = Mathf.Abs(width);
+        height = Mathf.Abs(height);
+
+        boxSelection.sizeDelta = new Vector2(width, height);
+
+        oldAnchoredPos = boxSelection.anchoredPosition;
+    }
+
+    private void ReleaseSelectionBox(Vector2 mousePos)
+    {
+        // Down left corner
+        Vector2 corner1;
+        // Top right corner
+        Vector2 corner2;
+
+        boxSelection.gameObject.SetActive(false);
+
+        // sizeDelta : width and height of the boxSelection
+        corner1 = oldAnchoredPos - (boxSelection.sizeDelta / 2);
+        //Debug.Log($"Release Selection Box : (Down left corner {corner1}) => {oldAnchoredPos} - ({boxSelection.sizeDelta} / 2)");
+        corner2 = oldAnchoredPos + (boxSelection.sizeDelta / 2);
+        //Debug.Log($"Release Selection Box : (Top right corner {corner2}) => {oldAnchoredPos} + ({boxSelection.sizeDelta} / 2)");
+
+        foreach (Character member in PartyManager.instance.Members)
+        {
+            Vector2 unitPos = cam.WorldToScreenPoint(member.transform.position);
+
+            // Check if the unit is in the selection box
+            if ((unitPos.x > corner1.x && unitPos.x < corner2.x) 
+                && (unitPos.y > corner1.y && unitPos.y < corner2.y))
+            {
+                PartyManager.instance.SelectChars.Add(member);
+                member.ToggleRingSelection(true);
+            }
+        }
+
+        // Clear selection Box's size
+        boxSelection.sizeDelta = new Vector2(0, 0);
+    }
+
     private void ClearRingSelection()
     {
-        if (curChar != null) curChar.ToggleRingSelection(false);
+        foreach (Character h in PartyManager.instance.SelectChars)
+        {
+            h.ToggleRingSelection(false);
+        }
     }
 
     private void ClearEverthing()
     {
         ClearRingSelection();
-        curChar = null;
+        PartyManager.instance.SelectChars.Clear();
     }
 }
