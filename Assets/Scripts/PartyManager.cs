@@ -15,4 +15,25 @@ public class PartyManager : MonoBehaviour
     {
         instance = this;
     }
+
+    private void Start()
+    {
+        foreach (Character c in members)
+        {
+            c.CharInit(VFXManager.instance);
+            c.MagicSkills.Add(new Magic(0, "Fireball", 10f, 30, 3f, 1f, 0, 1));
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (selectChars.Count > 0)
+            {
+                selectChars[0].IsMagicMode = true;
+                selectChars[0].CurMagicCast = selectChars[0].MagicSkills[0];
+            }
+        }
+    }
 }

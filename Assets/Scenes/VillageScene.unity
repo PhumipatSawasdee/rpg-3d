@@ -845,6 +845,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6480667344296309426, guid: 760512701cab91a4da6a2838609980cf, type: 3}
+      propertyPath: curHP
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 131680, guid: 760512701cab91a4da6a2838609980cf, type: 3}
       propertyPath: m_Name
       value: Character_Hero_Knight_Female 1
@@ -5034,6 +5038,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VFXManager
   doubleRingMarker: {fileID: 6044037666520248651, guid: 4a9c81872774da143bbadd1aeb637a86, type: 3}
+  magicVFX:
+  - {fileID: 1722081097931586, guid: 4b21d5ab091be5a46ad6e87699fab62c, type: 3}
+  - {fileID: 1236643204216662, guid: 706333c6431ba8c4ea48f7fe578e3e37, type: 3}
+  - {fileID: 1739096776086156, guid: 4d6d0b6c98562024e8896ae6e3312f74, type: 3}
 --- !u!114 &658870138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5958,6 +5966,10 @@ PrefabInstance:
     - target: {fileID: 487758, guid: bcefca9cfc5e4ad4c8c67330bafd00b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2285318957942487591, guid: bcefca9cfc5e4ad4c8c67330bafd00b5, type: 3}
+      propertyPath: curHP
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5475436419273371341, guid: bcefca9cfc5e4ad4c8c67330bafd00b5, type: 3}
       propertyPath: m_Enabled
@@ -8461,6 +8473,10 @@ PrefabInstance:
     - target: {fileID: 467240, guid: c64bbf20a08c40d4e8cbbc22769112da, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8210117023705944329, guid: c64bbf20a08c40d4e8cbbc22769112da, type: 3}
+      propertyPath: curHP
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
