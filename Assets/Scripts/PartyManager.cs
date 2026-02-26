@@ -25,8 +25,13 @@ public class PartyManager : MonoBehaviour
 
         SelectSigleHero(0);
 
-        members[0].MagicSkills.Add(new Magic(0, "Power Glow", 10f, 20, 3f, 1f, 2, 2));
+        members[0].MagicSkills.Add(new Magic(0, "Power Glow", 10f, 20, 3f, 1f, 2, 2)); 
+        members[0].MagicSkills.Add(new Magic(1, "Bubble", 15f, 20, 2f, 1f, 2, 3));
+        members[0].MagicSkills.Add(new Magic(2, "Firework", 8f, 25, 3f, 2f, 2, 6));
+
         members[1].MagicSkills.Add(new Magic(0, "Fire Ball", 10f, 35, 3f, 4f, 0, 1));
+        members[1].MagicSkills.Add(new Magic(1, "Explosion Body", 4f, 45, 4f, 5f, 2, 5)); 
+        members[1].MagicSkills.Add(new Magic(2, "Electricity", 12f, 25, 2f, 3f, 2, 4));
 
         UIManager.instance.ShowMagicToggle();
     }

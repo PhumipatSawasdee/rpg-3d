@@ -59,6 +59,10 @@ public abstract class Character : MonoBehaviour
     public bool IsMagicMode
     { get { return isMagicMode; } set { isMagicMode = value; } }
 
+    [SerializeField] protected Transform shootPoint; 
+    public Transform ShootPoint
+    { get { return shootPoint; } set { shootPoint = value; } }
+
     protected VFXManager vfxManager;
     protected UIManager uiManager;
 
@@ -233,8 +237,8 @@ public abstract class Character : MonoBehaviour
     {
         if (vfxManager != null)
             vfxManager.ShootMagic(curMagicCast.ShootID,
-                transform.position,
-                curCharTarget.transform.position,
+                ShootPoint.position,
+                curCharTarget.ShootPoint.position,
                 curMagicCast.ShootTime);
 
         yield return new WaitForSeconds(curMagicCast.ShootTime);
@@ -260,7 +264,7 @@ public abstract class Character : MonoBehaviour
     {
         if (vfxManager != null)
             vfxManager.LoadMagic(curMagicCast.LoadID,
-                transform.position,
+                ShootPoint.position,
                 curMagicCast.LoadTime);
 
         yield return new WaitForSeconds(curMagicCast.LoadTime);
