@@ -268,6 +268,7 @@ public abstract class Character : MonoBehaviour
                 curMagicCast.LoadTime);
 
         yield return new WaitForSeconds(curMagicCast.LoadTime);
+
         StartCoroutine(ShootMagicCast(curMagicCast));
     }
 
