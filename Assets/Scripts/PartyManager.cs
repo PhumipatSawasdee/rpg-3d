@@ -35,10 +35,17 @@ public class PartyManager : MonoBehaviour
 
         InventoryManager.Instance.AddItem(members[0], 0);
         InventoryManager.Instance.AddItem(members[0], 1);
+        InventoryManager.Instance.AddItem(members[0], 3);
+        InventoryManager.Instance.AddItem(members[0], 6);
+        InventoryManager.Instance.AddItem(members[0], 7);
+        InventoryManager.Instance.AddItem(members[0], 9);
 
         InventoryManager.Instance.AddItem(members[1], 0);
         InventoryManager.Instance.AddItem(members[1], 1);
         InventoryManager.Instance.AddItem(members[1], 2);
+        InventoryManager.Instance.AddItem(members[1], 4);
+        InventoryManager.Instance.AddItem(members[1], 5);
+        InventoryManager.Instance.AddItem(members[1], 8);
 
         UIManager.instance.ShowMagicToggle();
     }
