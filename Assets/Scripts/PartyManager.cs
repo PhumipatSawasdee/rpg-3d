@@ -25,13 +25,20 @@ public class PartyManager : MonoBehaviour
 
         SelectSigleHero(0);
 
-        members[0].MagicSkills.Add(new Magic(0, "Power Glow", 10f, 20, 3f, 3f, 2, 1)); 
-        members[0].MagicSkills.Add(new Magic(1, "Bubble", 15f, 20, 2f, 2f, 1, 3));
-        members[0].MagicSkills.Add(new Magic(2, "Firework", 8f, 25, 3f, 3f, 0, 6));
+        members[0].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[0])); 
+        members[0].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[1]));
+        members[0].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[2]));
 
-        members[1].MagicSkills.Add(new Magic(0, "Fire Ball", 10f, 35, 3f, 2f, 1, 0));
-        members[1].MagicSkills.Add(new Magic(1, "Explosion Body", 4f, 45, 4f, 3f, 2, 5)); 
-        members[1].MagicSkills.Add(new Magic(2, "Electricity", 12f, 25, 2f, 2f, 2, 4));
+        members[1].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[3]));
+        members[1].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[4])); 
+        members[1].MagicSkills.Add(new Magic(VFXManager.instance.MagicData[5]));
+
+        InventoryManager.Instance.AddItem(members[0], 0);
+        InventoryManager.Instance.AddItem(members[0], 1);
+
+        InventoryManager.Instance.AddItem(members[1], 0);
+        InventoryManager.Instance.AddItem(members[1], 1);
+        InventoryManager.Instance.AddItem(members[1], 2);
 
         UIManager.instance.ShowMagicToggle();
     }

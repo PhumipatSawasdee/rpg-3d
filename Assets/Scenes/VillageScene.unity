@@ -5877,6 +5877,13 @@ MonoBehaviour:
   - {fileID: 1251993928265596, guid: 69a325bb8c7319c47a25a57d1e4e22a2, type: 3}
   - {fileID: 1607639662943796, guid: bc6f8bde8569cfc4694ce2c933c9fc76, type: 3}
   - {fileID: 1906021416640072, guid: fa9b10a26c659e04eab97f5d10e8132a, type: 3}
+  magicData:
+  - {fileID: 11400000, guid: 6b187591ea50ff5408fee77ec8e707b2, type: 2}
+  - {fileID: 11400000, guid: 1a90ed0aa7464ef41ac5c948b949f28b, type: 2}
+  - {fileID: 11400000, guid: bcce77bc9ac70cc4f990d48af64e8907, type: 2}
+  - {fileID: 11400000, guid: d746cb2d5ef43624286c416aafad67f1, type: 2}
+  - {fileID: 11400000, guid: 1d2cc4861f338fc4395da545d10ce7f1, type: 2}
+  - {fileID: 11400000, guid: 6f16cba4612fa2d4bb5d330237d33ded, type: 2}
 --- !u!114 &658870138
 MonoBehaviour:
   m_ObjectHideFlags: 0
