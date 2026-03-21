@@ -77,7 +77,8 @@ public class InventoryManager : MonoBehaviour
         {
             if (items[i] != null)
             {
-                SpawnDropItem(items[i], pos);
+                Vector3 ranPos = new Vector3(Random.RandomRange(pos.x - 1.5f, pos.x + 1.5f), pos.y, Random.RandomRange(pos.z - 1.5f, pos.z + 1.5f));
+                SpawnDropItem(items[i], ranPos);
             }
         }
     }
