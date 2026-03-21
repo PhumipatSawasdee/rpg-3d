@@ -6630,6 +6630,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 467240, guid: c64bbf20a08c40d4e8cbbc22769112da, type: 3}
   m_PrefabInstance: {fileID: 1284280545}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &654050157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8210117023705944329, guid: c64bbf20a08c40d4e8cbbc22769112da, type: 3}
+  m_PrefabInstance: {fileID: 1284280545}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae733314ae9865f418e30f36ab4c4cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
 --- !u!1 &658870133
 GameObject:
   m_ObjectHideFlags: 0
@@ -6644,6 +6655,7 @@ GameObject:
   - component: {fileID: 658870137}
   - component: {fileID: 658870138}
   - component: {fileID: 658870139}
+  - component: {fileID: 658870140}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6753,7 +6765,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f47ffa19e0ab8c40a43f3af1e544272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventoryManager
-  itemPrefabs: []
+  itemPrefabs:
+  - {fileID: 2183001951008068311, guid: ae238050ffb814f4bbf7338d60047539, type: 3}
+  - {fileID: 157152, guid: e6c42dbd4d686da4982a51f52aedfbdd, type: 3}
   itemData:
   - {fileID: 11400000, guid: 80710b64fd110d14e92b496d56aba77c, type: 2}
   - {fileID: 11400000, guid: 498bdf4bac0e1bf4a9e4a63e4c0226aa, type: 2}
@@ -6765,6 +6779,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2416e3aaf214c774f90130732e8abfeb, type: 2}
   - {fileID: 11400000, guid: d0a229b02bbccdf4c9bd1fca7840286d, type: 2}
   - {fileID: 11400000, guid: 3aff0805747e0ed458cbe007f095d098, type: 2}
+--- !u!114 &658870140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 658870133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09f90ed4135fe5a44a8d73a82c4062e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
+  monsters:
+  - {fileID: 654050157}
 --- !u!1001 &660140858
 PrefabInstance:
   m_ObjectHideFlags: 0
