@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class InventoryManager : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private ItemData[] itemData;
     public ItemData[] ItemData { get { return itemData; } set { itemData = value; } }
 
-    public const int MAXSLOT = 16;
+    public const int MAXSLOT = 17;
 
     public static InventoryManager instance;
     private void Awake()
@@ -39,6 +40,13 @@ public class InventoryManager : MonoBehaviour
             return;
 
         PartyManager.instance.SelectChars[0].InventoryItems[index] = item;
+
+        switch (index)
+        {
+            case 16:
+                PartyManager.instance.SelectChars[0].EquipShield(item);
+                break;
+        }
     }
 
     public void RemoveItemInBag(int index)
@@ -47,6 +55,13 @@ public class InventoryManager : MonoBehaviour
             return;
 
         PartyManager.instance.SelectChars[0].InventoryItems[index] = null;
+
+        switch (index)
+        {
+            case 16:
+                PartyManager.instance.SelectChars[0].UnEquipShield();
+                break;
+        }
     }
 
     private void SpawnDropItem(Item item, Vector3 pos)
