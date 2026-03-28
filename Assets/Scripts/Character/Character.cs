@@ -32,6 +32,9 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected int curHP = 10;
     public int CurHP { get { return curHP; } }
 
+    [SerializeField] protected int maxHp = 100;
+    public int MaxHP { get { return maxHp; } }
+
     [SerializeField] protected Character curCharTarget;
     public Character CurCharTarget { get { return curCharTarget; }
         set { curCharTarget = value; } }
@@ -302,6 +305,14 @@ public abstract class Character : MonoBehaviour
     {
         yield return new WaitForSeconds(5f);
         Destroy(gameObject);
+    }
+
+    public void Recover(int n)
+    {
+        curHP += n;
+
+        if (curHP > maxHp)
+            curHP = maxHp;
     }
 
     protected virtual void Die()
