@@ -21,7 +21,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         ItemDrag itemDragA = objA.GetComponent<ItemDrag>();
         InventorySlot slotA = itemDragA.IconParrent.GetComponent<InventorySlot>();
 
-        if (itemType == ItemType.Shield)
+        if (itemType == ItemType.Shield || itemType == ItemType.Weapon)
         {
             if (itemDragA.Item.Type != itemType)
                 return;
@@ -32,7 +32,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
             GameObject objB = transform.GetChild(0).gameObject;
             ItemDrag itemDragB = objB.GetComponent<ItemDrag>();
 
-            if (slotA.ItemType == ItemType.Shield)
+            if (slotA.ItemType == ItemType.Shield || slotA.ItemType == ItemType.Weapon)
             {
                 if (itemDragB.Item.Type != slotA.ItemType)
                     return;

@@ -1,4 +1,3 @@
-using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -73,11 +72,15 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected Item mainWeapon;
     public Item MainWeapon { get { return mainWeapon; } set { mainWeapon = value; } }
 
+    [SerializeField] protected Transform mainWeaponHand;
+    [SerializeField] protected GameObject mainWeaponObj;
+
+    [SerializeField] protected int attackPower = 0;
+
     [SerializeField] protected Item shield;
     public Item Shield { get { return shield; } set { shield = value; } }
 
     [SerializeField] protected Transform shieldHand;
-
     [SerializeField] protected GameObject shieldObj;
 
     [SerializeField] protected int defensePower = 0;
@@ -245,7 +248,10 @@ public abstract class Character : MonoBehaviour
         Character target = curCharTarget.GetComponent<Character>();
 
         if (target != null)
-            target.ReviceDamage(attackDamage);
+        {
+            int damageAfter = attackDamage + attackPower;
+            target.ReviceDamage(damageAfter);
+        } 
     }
 
     protected void MagicCastLogic(Magic magic)
@@ -326,6 +332,27 @@ public abstract class Character : MonoBehaviour
 
         if (curHP > maxHp)
             curHP = maxHp;
+    }
+
+    public void EquipWeapon(Item item)
+    {
+        mainWeaponObj = Instantiate(invManager.ItemPrefabs[item.PrefabID], mainWeaponHand);
+
+        mainWeaponObj.transform.localPosition = new Vector3(8.5f, 4f, 3f);
+        mainWeaponObj.transform.Rotate(90f, 0f, 180f, Space.Self);
+
+        attackPower += item.Power;
+        mainWeapon = item;
+    }
+
+    public void UnEquipWeapon()
+    {
+        if (mainWeapon != null)
+        {
+            attackPower -= shield.Power;
+            mainWeapon = null;
+            Destroy(mainWeaponObj);
+        }
     }
 
     public void EquipShield(Item item)

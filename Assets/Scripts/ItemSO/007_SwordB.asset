@@ -15,6 +15,6 @@ MonoBehaviour:
   id: 7
   itemName: Sword B
   type: 4
-  icon: {fileID: 21300000, guid: 5236b08a6e67ec441a17b65915c11e93, type: 3}
+  icon: {fileID: 21300000, guid: 7d1f86eb265e58c43aee0a75ddc44805, type: 3}
   power: 25
-  prefabID: 0
+  prefabID: 5
