@@ -48,6 +48,17 @@ public class RightClick : MonoBehaviour
         }
     }
 
+    private void CommandTalkToNpc(RaycastHit hit, List<Character> heroes)
+    {
+        Character npc = hit.collider.GetComponent<Character>();
+        Debug.Log($"Talk to NPC : {npc}");
+
+        if (heroes.Count <= 0)
+            return;
+
+        heroes[0].ToTalkToNPC(npc);
+    }
+
     private void TryCommand(Vector2 screenPos)
     {
         Ray ray = cam.ScreenPointToRay(screenPos);
@@ -63,6 +74,10 @@ public class RightClick : MonoBehaviour
 
                 case "Enemy":
                     CommandToAttack(hit, PartyManager.instance.SelectChars);
+                    break;
+
+                case "NPC":
+                    CommandTalkToNpc(hit, PartyManager.instance.SelectChars);
                     break;
             }
         }

@@ -12,7 +12,8 @@ public enum CharState
     WalkToMagicCast,
     MagicCast,
     Hit,
-    Die
+    Die,
+    WalkToNPC
 }
 
 public abstract class Character : MonoBehaviour
@@ -21,6 +22,12 @@ public abstract class Character : MonoBehaviour
 
     protected Animator anim;
     public Animator Anim { get { return anim; } }
+
+    [SerializeField] protected Sprite avatarPic;
+    public Sprite AvatarPic { get { return avatarPic; } }
+
+    [SerializeField] protected string charName;
+    public string CharName { get { return charName; } }
 
     [SerializeField] protected CharState state;
     public CharState State { get { return state; } }
@@ -135,6 +142,21 @@ public abstract class Character : MonoBehaviour
             SetState(CharState.Idle);
     }
 
+    protected void WalkToNPCUpdate()
+    {
+        float distance = Vector3.Distance(transform.position, curCharTarget.transform.position);
+
+        if (distance <= 2f)
+        {
+            navAgent.isStopped = true;
+            SetState(CharState.Idle);
+
+            Npc npc = curCharTarget.GetComponent<Npc>();
+
+            uiManager.PrepareDialogueBox(npc);
+        }
+    }
+
     public void ToggleRingSelection(bool flag) => ringSelection.SetActive(flag);
 
     public void ToAttackCharacter(Character target)
@@ -189,6 +211,19 @@ public abstract class Character : MonoBehaviour
 
             MagicCast(curMagicCast);
         }
+    }
+
+    public void ToTalkToNPC(Character npc)
+    {
+        if (curHP <= 0 || state == CharState.Die)
+            return;
+
+        curCharTarget = npc;
+
+        navAgent.SetDestination(npc.transform.position);
+        navAgent.isStopped = false;
+
+        SetState(CharState.WalkToNPC);
     }
 
     public bool IsMyEnemy(string targetTag)
