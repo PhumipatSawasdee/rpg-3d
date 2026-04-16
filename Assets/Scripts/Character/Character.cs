@@ -153,7 +153,16 @@ public abstract class Character : MonoBehaviour
 
             Npc npc = curCharTarget.GetComponent<Npc>();
 
-            uiManager.PrepareDialogueBox(npc);
+            foreach (Quest quest in npc.QuestToGive)
+            {
+                if (npc.CheckQuestList(QuestStatus.New) != null || npc.CheckQuestList(QuestStatus.InProgress) != null)
+                {
+                    Debug.Log("Has quest to give");
+                    uiManager.PrepareDialogueBox(npc);
+                }
+                else
+                    Debug.Log("Not has quest to give");
+            }
         }
     }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -42,6 +43,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text btnFinishText;
     [SerializeField] private GameObject btnNotFinish;
     [SerializeField] private TMP_Text btnNotFinishText;
+
+    [SerializeField] private GameObject rewardedItemPanel;
+    [SerializeField] private TMP_Text rewardedItemText;
+    [SerializeField] private Image rewardedItemIcon;
 
     public static UIManager instance;
 
@@ -272,7 +277,9 @@ public class UIManager : MonoBehaviour
             Debug.Log(newQuest);
 
             if (newQuest != null)
+            {
                 StartQuestDialogue(newQuest);
+            }
         }
     }
 
@@ -335,12 +342,27 @@ public class UIManager : MonoBehaviour
 
         if (success)
         {
-            if (QuestManager.instance.NpcGiveReward())
+            Item item = QuestManager.instance.NpcGiveReward();
+
+            if (item != null)
             {
                 Debug.Log("Quest Completed");
                 ToggleDialogueBox(false);
+
+                StartCoroutine(RewardedItemRoutine(item));
             }
         }
+    }
+
+    private IEnumerator RewardedItemRoutine(Item item)
+    {
+        rewardedItemText.text = $"Reward : {item.ItemName}.";
+        rewardedItemIcon.sprite = item.Icon;
+
+        rewardedItemPanel.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+
+        rewardedItemPanel.SetActive(false);
     }
 
     public void AnswerNotFinish()

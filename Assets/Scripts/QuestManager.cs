@@ -95,10 +95,10 @@ public class QuestManager : MonoBehaviour
         return InventoryManager.instance.RemoveItemFromParty(curQuest.QuestItemId);
     }
 
-    public bool NpcGiveReward()
+    public Item NpcGiveReward()
     {
         if (PartyManager.instance.SelectChars.Count == 0)
-            return false;
+            return null;
 
         Character hero = PartyManager.instance.SelectChars[0];
 
@@ -106,10 +106,13 @@ public class QuestManager : MonoBehaviour
 
         for (int i = 0; i < 16; i++)
         {
-            hero.InventoryItems[i] = null;
-            curQuest.Status = QuestStatus.Finish;
-            return true;
+            if (hero.InventoryItems[i] == null)
+            {
+                hero.InventoryItems[i] = item;
+                curQuest.Status = QuestStatus.Finish;
+                return item;
+            }
         }
-        return false;
+        return null;
     }
 }
