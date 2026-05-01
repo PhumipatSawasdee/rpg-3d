@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -155,6 +156,11 @@ public abstract class Character : MonoBehaviour
             SetState(CharState.Idle);
 
             Npc npc = curCharTarget.GetComponent<Npc>();
+
+            if (npc.IsShopKeeper)
+                uiManager.PrepareShopPanel(npc, this.GetComponent<Hero>());
+            else
+                uiManager.PrepareDialogueBox(npc);
 
             foreach (Quest quest in npc.QuestToGive)
             {
@@ -431,5 +437,17 @@ public abstract class Character : MonoBehaviour
         anim.SetTrigger("Die");
         invManager.SpawnDropInventory(inventoryItems, transform.position);
         StartCoroutine(DestroyObject());
+    }
+
+    public void SaveItemInInventory(Item item)
+    {
+        for (int i = 0; i < 16; i++)
+        {
+            if (inventoryItems[i] == null)
+            {
+                InventoryItems[i] = item;
+                return;
+            }
+        }
     }
 }

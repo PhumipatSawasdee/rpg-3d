@@ -9,11 +9,13 @@ public class PartyManager : MonoBehaviour
     [SerializeField] private List<Character> selectChars = new List<Character>();
     public List<Character> SelectChars { get { return selectChars; } }
 
+    [SerializeField] private int partyMoney = 1000;
+    public int PartyMoney { get { return partyMoney; } set { partyMoney = value; } }
+
     [SerializeField] private List<Quest> questList = new List<Quest>();
     public List<Quest> QuestList { get { return questList; } }
 
     public static PartyManager instance;
-
     private void Awake()
     {
         instance = this;
@@ -116,11 +118,11 @@ public class PartyManager : MonoBehaviour
 
     public void UnSelectSingleHeroByToggle(int i)
     {
-        if (selectChars.Count <= 1)
+        /*if (selectChars.Count <= 1)
         {
             UIManager.instance.ToggleAvatar[i].isOn = true;
             return;
-        }
+        }*/
 
         if (selectChars.Contains(members[i]))
         {
