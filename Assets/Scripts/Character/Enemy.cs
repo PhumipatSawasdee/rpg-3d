@@ -2,13 +2,9 @@ using UnityEngine;
 
 public class Enemy : Character
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private int expDrop;
+    public int ExpDrop { get { return expDrop; } }
 
-    // Update is called once per frame
     void Update()
     {
         switch (state)
@@ -25,5 +21,11 @@ public class Enemy : Character
                 AttackUpdate();
                 break;
         }
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+        partyManager.DistributeTotalExp(expDrop);
     }
 }

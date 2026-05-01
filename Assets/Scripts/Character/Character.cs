@@ -99,6 +99,7 @@ public abstract class Character : MonoBehaviour
     protected VFXManager vfxManager;
     protected UIManager uiManager;
     protected InventoryManager invManager;
+    protected PartyManager partyManager;
 
     private void Awake()
     {
@@ -106,11 +107,12 @@ public abstract class Character : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void CharInit(VFXManager vfxM, UIManager uiM, InventoryManager invM)
+    public void CharInit(VFXManager vfxM, UIManager uiM, InventoryManager invM, PartyManager partyM)
     {
         vfxManager = vfxM;
         uiManager = uiM;
         invManager = invM;
+        partyManager = partyM;
 
         inventoryItems = new Item[InventoryManager.MAXSLOT];
     }
@@ -157,20 +159,28 @@ public abstract class Character : MonoBehaviour
 
             Npc npc = curCharTarget.GetComponent<Npc>();
 
-            if (npc.IsShopKeeper)
-                uiManager.PrepareShopPanel(npc, this.GetComponent<Hero>());
-            else
-                uiManager.PrepareDialogueBox(npc);
-
-            foreach (Quest quest in npc.QuestToGive)
+            if (npc != null)
             {
-                if (npc.CheckQuestList(QuestStatus.New) != null || npc.CheckQuestList(QuestStatus.InProgress) != null)
-                {
-                    Debug.Log("Has quest to give");
-                    uiManager.PrepareDialogueBox(npc);
-                }
+                if (npc.IsShopKeeper)
+                    uiManager.PrepareShopPanel(npc, this.GetComponent<Hero>());
                 else
-                    Debug.Log("Not has quest to give");
+                    uiManager.PrepareDialogueBox(npc);
+
+                foreach (Quest quest in npc.QuestToGive)
+                {
+                    if (npc.CheckQuestList(QuestStatus.New) != null || npc.CheckQuestList(QuestStatus.InProgress) != null)
+                    {
+                        Debug.Log("Has quest to give");
+                        uiManager.PrepareDialogueBox(npc);
+                    }
+                    else
+                        Debug.Log("Not has quest to give");
+                }
+            }
+            else
+            {
+                Hero hero = curCharTarget.GetComponent<Hero>();
+                uiManager.PrepareHeroJoinParty(hero);
             }
         }
     }
@@ -437,17 +447,5 @@ public abstract class Character : MonoBehaviour
         anim.SetTrigger("Die");
         invManager.SpawnDropInventory(inventoryItems, transform.position);
         StartCoroutine(DestroyObject());
-    }
-
-    public void SaveItemInInventory(Item item)
-    {
-        for (int i = 0; i < 16; i++)
-        {
-            if (inventoryItems[i] == null)
-            {
-                InventoryItems[i] = item;
-                return;
-            }
-        }
     }
 }

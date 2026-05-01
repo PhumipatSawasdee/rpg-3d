@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 3926480552687003969}
   m_Layer: 6
   m_Name: Character_Hero_Knight_Female 1
-  m_TagString: Untagged
+  m_TagString: Hero
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   charName: 
   state: 0
   ringSelection: {fileID: 289623972371856058}
-  curHP: 10
+  curHP: 100
   maxHp: 100
   curCharTarget: {fileID: 0}
   attackRange: 2
@@ -1373,6 +1373,7 @@ MonoBehaviour:
     icon: {fileID: 0}
     power: 0
     prefabID: 0
+    normalPrice: 0
   mainWeaponHand: {fileID: 0}
   mainWeaponObj: {fileID: 0}
   attackPower: 0
@@ -1383,11 +1384,13 @@ MonoBehaviour:
     icon: {fileID: 0}
     power: 0
     prefabID: 0
+    normalPrice: 0
   shieldHand: {fileID: 0}
   shieldObj: {fileID: 0}
   defensePower: 0
   exp: 0
   level: 0
+  nextExp: 0
   strength: 0
   dexterity: 0
   constitution: 0
