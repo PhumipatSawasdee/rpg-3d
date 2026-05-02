@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 3719609773260601922}
   - component: {fileID: 6984471835079912819}
   - component: {fileID: 4024876225516032457}
+  - component: {fileID: 8234392744531788410}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -111,6 +112,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PartyManager
   members: []
+  heroData:
+  - {fileID: 11400000, guid: 60d1024f237efc0498bed05d99b94abd, type: 2}
+  - {fileID: 11400000, guid: afa50f0ccb46a7a45ab1e075d8c581f5, type: 2}
+  - {fileID: 11400000, guid: 7d19891556c6e3b4aa2415ca4140e13f, type: 2}
+  - {fileID: 11400000, guid: 7f0d34e398ac05b47958e5772a6614ac, type: 2}
+  - {fileID: 11400000, guid: ffce57f1872f7894c886b36ba6167b1a, type: 2}
+  - {fileID: 11400000, guid: 448a7be1234934b45bb460d41a6a0848, type: 2}
   selectChars: []
   partyMoney: 1000
   totalExp: 0
@@ -212,3 +220,16 @@ MonoBehaviour:
   heroPrefabs:
   - {fileID: 131680, guid: 760512701cab91a4da6a2838609980cf, type: 3}
   - {fileID: 162860, guid: bcefca9cfc5e4ad4c8c67330bafd00b5, type: 3}
+--- !u!114 &8234392744531788410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4025854017384466514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32a97da39734d2418cba1b85250e616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapManager
+  enterPoints: []

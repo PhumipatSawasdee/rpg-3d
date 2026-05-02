@@ -24,6 +24,13 @@ public class SelectChar : MonoBehaviour
         LoadChar();
     }
 
+    public void BeginGame()
+    {
+        Settings.playerPrefabId = curId;
+        Settings.isNewGame = true;
+        SceneManager.LoadScene("VillageScene");
+    }
+
     private void LoadChar()
     {
         Hero hero = heroPrefabs[curId].GetComponent<Hero>();
@@ -61,11 +68,5 @@ public class SelectChar : MonoBehaviour
     public void BackToMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
-    }
-
-    public void BeginGame()
-    {
-        Settings.playerPrefabId = curId;
-        SceneManager.LoadScene("VillageScene");
     }
 }
