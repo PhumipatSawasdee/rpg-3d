@@ -20,6 +20,17 @@ public class MapManager : MonoBehaviour
 
         PartyManager.instance.SaveAllHeroData();
 
+        switch (mapName)
+        {
+            case "VillageScene":
+                AudioManager.instance.PlayBGM(1);
+                break;
+
+            case "Forest01":
+                AudioManager.instance.PlayBGM(3);
+                break;
+        }
+
         SceneManager.LoadScene(mapName);
     }
 }

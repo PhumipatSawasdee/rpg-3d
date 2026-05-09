@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class LeftClick : MonoBehaviour
@@ -25,9 +26,9 @@ public class LeftClick : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            startPos = Input.mousePosition;
+            startPos = Mouse.current.position.value;
 
             // If click UI, don't clear
             if (EventSystem.current.IsPointerOverGameObject())
@@ -35,10 +36,10 @@ public class LeftClick : MonoBehaviour
                 return;
             }
 
-            ClearEverthing();
+            //ClearEverthing();
         }
 
-        if (Input.GetMouseButton(0))
+        if (Mouse.current.leftButton.isPressed)
         {
             // If click UI, don't check
             /*if (EventSystem.current.IsPointerOverGameObject())
@@ -46,13 +47,13 @@ public class LeftClick : MonoBehaviour
                 return;
             }*/
 
-            UpdateSelectionBox(Input.mousePosition);
+            UpdateSelectionBox(Mouse.current.position.value);
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
-            ReleaseSelectionBox(Input.mousePosition);
-            TrySelect(Input.mousePosition);
+            ReleaseSelectionBox(Mouse.current.position.value);
+            TrySelect(Mouse.current.position.value);
         }
     }
 
@@ -84,6 +85,10 @@ public class LeftClick : MonoBehaviour
                 case "Player":
                 case "Hero":
                     i = SelectCharacter(hit);
+                    break;
+
+                case "Item":
+                    SelectItem(hit); 
                     break;
             }
         }
@@ -128,6 +133,8 @@ public class LeftClick : MonoBehaviour
         corner2 = oldAnchoredPos + (boxSelection.sizeDelta / 2);
         //Debug.Log($"Release Selection Box : (Top right corner {corner2}) => {oldAnchoredPos} + ({boxSelection.sizeDelta} / 2)");
 
+        bool anyNewCharSelect = false;
+
         foreach (Character member in PartyManager.instance.Members)
         {
             Vector2 unitPos = cam.WorldToScreenPoint(member.transform.position);
@@ -136,6 +143,12 @@ public class LeftClick : MonoBehaviour
             if ((unitPos.x > corner1.x && unitPos.x < corner2.x) 
                 && (unitPos.y > corner1.y && unitPos.y < corner2.y))
             {
+                if (!anyNewCharSelect)
+                {
+                    anyNewCharSelect = true;
+                    ClearEverthing();
+                }
+
                 int i = PartyManager.instance.FindIndexFromClass(member);
                 UIManager.instance.ToggleAvatar[i].isOn = true;
             }
@@ -160,5 +173,17 @@ public class LeftClick : MonoBehaviour
 
         ClearRingSelection();
         PartyManager.instance.SelectChars.Clear();
+    }
+
+    private void SelectItem(RaycastHit hit)
+    {
+        ItemPick itemPick = hit.collider.GetComponent<ItemPick>();
+        Debug.Log($"Pick Item: {itemPick.Item.ItemName}");
+
+        if (PartyManager.instance.SelectChars.Count == 0)
+            UIManager.instance.ToggleAvatar[0].isOn = true;
+
+        if (itemPick != null)
+            itemPick.PickUpItem();
     }
 }

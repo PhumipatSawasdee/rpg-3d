@@ -3063,7 +3063,7 @@ MonoBehaviour:
     power: 0
     prefabID: 0
     normalPrice: 0
-  mainWeaponHand: {fileID: 0}
+  mainWeaponHand: {fileID: 496550}
   mainWeaponObj: {fileID: 0}
   attackPower: 0
   shield:
@@ -3074,7 +3074,7 @@ MonoBehaviour:
     power: 0
     prefabID: 0
     normalPrice: 0
-  shieldHand: {fileID: 0}
+  shieldHand: {fileID: 483062}
   shieldObj: {fileID: 0}
   defensePower: 0
   prefabId: 1
@@ -3106,7 +3106,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 162860}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd900131f6030c6469dd3bf608dd0427, type: 3}
   m_Name: 
