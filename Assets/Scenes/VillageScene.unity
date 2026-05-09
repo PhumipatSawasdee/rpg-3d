@@ -2860,6 +2860,7 @@ MonoBehaviour:
   xInput: 0
   zInput: 0
   zoomModifier: 0
+  zoomSpeed: 0
 --- !u!65 &216300316
 BoxCollider:
   m_ObjectHideFlags: 0

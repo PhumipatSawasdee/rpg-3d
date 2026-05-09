@@ -71,7 +71,7 @@ public class CameraController : MonoBehaviour
     private void Zoom()
     {
         zoomValue = zoomAction.ReadValue<Vector2>();
-        zoomModifier = zoomValue.y * 5f;
+        zoomModifier = -zoomValue.y * 5f;
 
         if (Keyboard.current.zKey.isPressed) 
             zoomModifier = -1f;

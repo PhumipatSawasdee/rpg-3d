@@ -128,7 +128,22 @@ public class PartyManager : MonoBehaviour
             {
                 int itemId = heroData[i].inventoryItemIds[k];
                 if (itemId != -1)
-                    hero.InventoryItems[k] = new Item(InventoryManager.instance.ItemData[itemId]);
+                {
+                    Item newItem = new Item(InventoryManager.instance.ItemData[itemId]);
+                    hero.InventoryItems[k] = newItem;
+
+                    switch (k)
+                    {
+                        case 16:
+                            hero.EquipShield(newItem);
+                            break;
+
+                        case 17:
+                            hero.EquipShield(newItem);
+                            break;
+                    }
+
+                }
             }
 
             hero.AttackDamage = heroData[i].attackDamage;

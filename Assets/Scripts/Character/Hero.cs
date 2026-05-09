@@ -66,7 +66,7 @@ public class Hero : Character
 
     public void SaveItemInInventory(Item item)
     {
-        for (int i = 0; i < 16; i++)
+        for (int i = 0; i < InventoryManager.MAXSLOT; i++)
         {
             if (inventoryItems[i] == null)
             {
