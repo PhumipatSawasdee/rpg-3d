@@ -96,7 +96,6 @@ public abstract class Character : MonoBehaviour
     [SerializeField] protected int defensePower = 0;
     public int DefensePower { get { return defensePower; } set { defensePower = value; } }
 
-    protected VFXManager vfxManager;
     protected UIManager uiManager;
     protected InventoryManager invManager;
     protected PartyManager partyManager;
@@ -107,9 +106,8 @@ public abstract class Character : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void CharInit(VFXManager vfxM, UIManager uiM, InventoryManager invM, PartyManager partyM)
+    public void CharInit(UIManager uiM, InventoryManager invM, PartyManager partyM)
     {
-        vfxManager = vfxM;
         uiManager = uiM;
         invManager = invM;
         partyManager = partyM;
@@ -327,8 +325,8 @@ public abstract class Character : MonoBehaviour
 
     private IEnumerator ShootMagicCast(Magic curMagicCast)
     {
-        if (vfxManager != null)
-            vfxManager.ShootMagic(curMagicCast.ShootID,
+        if (MyActions.onShootMagic != null)
+            MyActions.onShootMagic(curMagicCast.ShootID,
                 ShootPoint.position,
                 curCharTarget.ShootPoint.position,
                 curMagicCast.ShootTime);
@@ -354,8 +352,8 @@ public abstract class Character : MonoBehaviour
 
     private IEnumerator LoadMagicCast(Magic curMagicCast)
     {
-        if (vfxManager != null)
-            vfxManager.LoadMagic(curMagicCast.LoadID,
+        if (MyActions.onLoadMagic != null)
+            MyActions.onLoadMagic(curMagicCast.LoadID,
                 ShootPoint.position,
                 curMagicCast.LoadTime);
 

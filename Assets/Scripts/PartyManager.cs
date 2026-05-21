@@ -115,7 +115,7 @@ public class PartyManager : MonoBehaviour
                 heroObj.gameObject.tag = "Player";
 
             Hero hero = heroObj.GetComponent<Hero>();
-            hero.CharInit(VFXManager.instance, UIManager.instance, InventoryManager.instance, this);
+            hero.CharInit(UIManager.instance, InventoryManager.instance, this);
             hero.CurHP = heroData[i].curHp;
 
             for (int j = 0; j < heroData[i].magicIds.Count; j++)
@@ -243,7 +243,7 @@ public class PartyManager : MonoBehaviour
         if (members.Count >= 6)
             return false;
 
-        hero.CharInit(VFXManager.instance, UIManager.instance, InventoryManager.instance, this);
+        hero.CharInit(UIManager.instance, InventoryManager.instance, this);
 
         members.Add(hero);
         return true;

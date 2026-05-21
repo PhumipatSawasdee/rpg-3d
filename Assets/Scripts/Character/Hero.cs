@@ -33,11 +33,6 @@ public class Hero : Character
     [SerializeField] private int charisma;
     public int Charisma { get { return charisma; } set { charisma = value; } }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         switch (state)
@@ -102,6 +97,8 @@ public class Hero : Character
     {
         nextExp = level * 30;
 
+        Magic magic;
+
         if (nextExp > exp)
         {
             level++;
@@ -111,13 +108,21 @@ public class Hero : Character
             switch (level)
             {
                 case 5:
-                    magicSkills.Add(new Magic(VFXManager.instance.MagicData[0]));
-                    uiManager.ShowMagicToggles(); 
+                    if (MyActions.onCreateMagic != null)
+                    {
+                        magic = MyActions.onCreateMagic(0);
+                        magicSkills.Add(magic);
+                        uiManager.ShowMagicToggles();
+                    }
                     break;
 
                 case 10:
-                    magicSkills.Add(new Magic(VFXManager.instance.MagicData[1]));
-                    uiManager.ShowMagicToggles();
+                    if (MyActions.onCreateMagic != null)
+                    {
+                        magic = MyActions.onCreateMagic(1);
+                        magicSkills.Add(magic);
+                        uiManager.ShowMagicToggles();
+                    }
                     break;
             }
         }

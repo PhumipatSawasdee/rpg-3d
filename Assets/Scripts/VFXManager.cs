@@ -18,6 +18,25 @@ public class VFXManager : MonoBehaviour
         instance = this;
     }
 
+    private void OnEnable()
+    {
+        MyActions.onLoadMagic += LoadMagic;
+        MyActions.onShootMagic += ShootMagic;
+        MyActions.onCreateMagic += CreateMagic;
+    }
+
+    private void OnDisable()
+    {
+        MyActions.onLoadMagic -= LoadMagic;
+        MyActions.onShootMagic -= ShootMagic;
+        MyActions.onCreateMagic -= CreateMagic;
+    }
+
+    public Magic CreateMagic(int id)
+    {
+        return new Magic(MagicData[id]);
+    }
+
     public void LoadMagic(int id, Vector3 posA, float time)
     {
         if (magicVFX[id] == null) return;
