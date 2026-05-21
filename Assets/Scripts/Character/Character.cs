@@ -273,6 +273,10 @@ public abstract class Character : MonoBehaviour
     {
         transform.LookAt(curCharTarget.transform);
         anim.SetTrigger("Attack");
+
+        float n = Random.Range(0, 4);
+        anim.SetFloat("AttackValue", n);
+
         AttackLogic();
     }
 
@@ -283,6 +287,7 @@ public abstract class Character : MonoBehaviour
         if (curCharTarget.CurHP <= 0)
         {
             SetState(CharState.Idle);
+            curCharTarget = null;
             return;
         }
         navAgent.isStopped = true;

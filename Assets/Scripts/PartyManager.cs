@@ -135,7 +135,7 @@ public class PartyManager : MonoBehaviour
                     switch (k)
                     {
                         case 16:
-                            hero.EquipShield(newItem);
+                            hero.EquipWeapon(newItem);
                             break;
 
                         case 17:
