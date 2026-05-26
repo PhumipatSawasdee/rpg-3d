@@ -8,6 +8,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("SelectChar");
     }
 
+    public void Setting()
+    {
+
+    }
+
     public void ExitGame()
     {
         Application.Quit();
