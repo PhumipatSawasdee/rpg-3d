@@ -140,7 +140,7 @@ public abstract class Character : MonoBehaviour
     protected void WalkUpdate()
     {
         float distance = Vector3.Distance(transform.position, navAgent.destination);
-        Debug.Log(distance);
+        //Debug.Log(distance);
 
         if (distance <= navAgent.stoppingDistance) 
             SetState(CharState.Idle);
@@ -177,8 +177,21 @@ public abstract class Character : MonoBehaviour
             }
             else
             {
-                Hero hero = curCharTarget.GetComponent<Hero>();
-                uiManager.PrepareHeroJoinParty(hero);
+                bool isInParty = false;
+                foreach (Character character in partyManager.Members)
+                {
+                    if (character.charName == curCharTarget.GetComponent<Character>().charName)
+                    {
+                        isInParty = true;
+                        Debug.Log($"{character.charName} is already in party");
+                    }
+                }
+
+                if (!isInParty)
+                {
+                    Hero hero = curCharTarget.GetComponent<Hero>();
+                    uiManager.PrepareHeroJoinParty(hero);
+                }
             }
         }
     }
@@ -256,16 +269,19 @@ public abstract class Character : MonoBehaviour
     {
         string myTag = gameObject.tag;
 
-        if (myTag == "Hero" || myTag == "Player" || targetTag == "Enemy")
+        if ((myTag == "Hero" || myTag == "Player") && targetTag == "Enemy")
         {
+            //Debug.Log($"{myTag} : Found enemy : {targetTag}");
             return true;
         }
 
         if (myTag == "Enemy" && (targetTag == "Hero" || targetTag == "Player"))
         {
+            //Debug.Log($"{myTag} : Found player : {targetTag}");
             return true;
         }
 
+        //Debug.Log($"{myTag} : Not found enemy : {targetTag}");
         return false;
     }
 

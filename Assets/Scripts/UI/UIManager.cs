@@ -171,16 +171,23 @@ public class UIManager : MonoBehaviour
     {
         if (!inventoryPanel.activeInHierarchy)
         {
+            CloseCharPanel();
+
             inventoryPanel.SetActive(true);
             blackImage.SetActive(true);
             ShowInventory();
         }
         else
         {
-            inventoryPanel.SetActive(false);
-            blackImage.SetActive(false);
-            ClearInventory();
+            CloseInventoryPanel();
         }
+    }
+
+    private void CloseInventoryPanel()
+    {
+        inventoryPanel.SetActive(false);
+        blackImage.SetActive(false);
+        ClearInventory();
     }
 
     public void ClearInventory()
@@ -466,16 +473,23 @@ public class UIManager : MonoBehaviour
     {
         if (!charPanel.activeInHierarchy)
         {
+            CloseInventoryPanel();
+
             charPanel.SetActive(true);
             blackImage.SetActive(true);
             ShowCharPanel();
         }
         else
         {
-            charPanel.SetActive(false);
-            blackImage.SetActive(false);
-            ClearCharPanel();
+            CloseCharPanel();
         }
+    }
+
+    private void CloseCharPanel()
+    {
+        charPanel.SetActive(false);
+        blackImage.SetActive(false);
+        ClearCharPanel();
     }
 
     public void ClearCharPanel()

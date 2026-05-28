@@ -19,8 +19,18 @@ public class EnemyManager : MonoBehaviour
             n.CharInit(UIManager.instance, InventoryManager.instance, PartyManager.instance);
         }
 
-        InventoryManager.instance.AddItem(monsters[0], 0);
-        InventoryManager.instance.AddItem(monsters[0], 1);
-        InventoryManager.instance.AddItem(monsters[0], 2);
+        RandomAddEnemyInventory();
+    }
+
+    private void RandomAddEnemyInventory()
+    {
+        foreach (Enemy e in monsters)
+        {
+            for (int i = 0; i < Random.Range(0, 3); i++)
+            {
+                int randomItem = Random.Range(0, InventoryManager.instance.ItemData.Length);
+                InventoryManager.instance.AddItem(e, randomItem);
+            }
+        }
     }
 }

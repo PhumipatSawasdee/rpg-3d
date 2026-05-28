@@ -99,7 +99,7 @@ public class Hero : Character
 
         Magic magic;
 
-        if (nextExp > exp)
+        if (exp > nextExp)
         {
             level++;
             nextExp = level * 30;
