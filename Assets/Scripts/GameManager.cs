@@ -40,7 +40,37 @@ public class GameManager : MonoBehaviour
         hero.CharInit(UIManager.instance, InventoryManager.instance, PartyManager.instance);
 
         InventoryManager.instance.AddItem(hero, 0);
-        InventoryManager.instance.AddItem(hero, 2);
+
+        switch (i)
+        {
+            case 0:
+            case 1:
+                InventoryManager.instance.AddItem(hero, 1);
+                InventoryManager.instance.AddItem(hero, 2);
+                break;
+
+            case 2:
+                InventoryManager.instance.AddItem(hero, 16);
+                break;
+
+            case 3:
+                InventoryManager.instance.AddItem(hero, 15);
+                break;
+
+            case 4:
+                InventoryManager.instance.AddItem(hero, 15);
+                break;
+
+            case 5:
+                InventoryManager.instance.AddItem(hero, 3);
+                InventoryManager.instance.AddItem(hero, 10);
+                break;
+
+            case 6:
+                InventoryManager.instance.AddItem(hero, 3);
+                InventoryManager.instance.AddItem(hero, 7);
+                break;
+        }
     }
 
     private void WrapPlayers()

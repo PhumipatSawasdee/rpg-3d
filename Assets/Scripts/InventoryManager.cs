@@ -20,8 +20,28 @@ public class InventoryManager : MonoBehaviour
     private void Start()
     {
         AddItemShopToNPC(1, 0);
-        AddItemShopToNPC(1, 9);
+        AddItemShopToNPC(1, 3);
+        AddItemShopToNPC(1, 4);
+        AddItemShopToNPC(1, 5);
+        AddItemShopToNPC(1, 6);
         AddItemShopToNPC(1, 10);
+
+        AddItemShopToNPC(2, 1);
+        AddItemShopToNPC(2, 2);
+        AddItemShopToNPC(2, 7);
+        AddItemShopToNPC(2, 8);
+        AddItemShopToNPC(2, 9);
+        AddItemShopToNPC(2, 14);
+        AddItemShopToNPC(2, 15);
+        AddItemShopToNPC(2, 16);
+        AddItemShopToNPC(2, 17);
+        AddItemShopToNPC(2, 18);
+        AddItemShopToNPC(2, 19);
+        AddItemShopToNPC(2, 20);
+        AddItemShopToNPC(2, 21);
+        AddItemShopToNPC(2, 22);
+        AddItemShopToNPC(2, 23);
+        AddItemShopToNPC(2, 24);
     }
 
     public bool AddItem(Character character, int id)

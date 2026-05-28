@@ -6,6 +6,9 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private List<Enemy> monsters;
     public List<Enemy> Monsters { get { return monsters; } }
 
+    [SerializeField] private List<int> dropItemIds;
+    public List<int> DropItemIds { get { return dropItemIds; } }
+
     public static EnemyManager instance;
     private void Awake()
     {
@@ -28,7 +31,7 @@ public class EnemyManager : MonoBehaviour
         {
             for (int i = 0; i < Random.Range(0, 3); i++)
             {
-                int randomItem = Random.Range(0, InventoryManager.instance.ItemData.Length);
+                int randomItem = Random.Range(0, dropItemIds.Count);
                 InventoryManager.instance.AddItem(e, randomItem);
             }
         }

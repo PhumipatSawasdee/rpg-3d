@@ -97,8 +97,6 @@ public class Hero : Character
     {
         nextExp = level * 30;
 
-        Magic magic;
-
         if (exp > nextExp)
         {
             level++;
@@ -107,24 +105,70 @@ public class Hero : Character
 
             switch (level)
             {
+                case 2:
+                    if (MyActions.onCreateMagic != null)
+                    {
+                        if (prefabId == 0 || prefabId == 1)
+                            ActivateNewSkill(0);
+                    }
+                    break;
+
+                case 3:
+                    if (MyActions.onCreateMagic != null)
+                    {
+                        if (prefabId == 0)
+                            ActivateNewSkill(1);
+
+                        else if (prefabId == 1)
+                            ActivateNewSkill(2);
+                    }
+                    break;
+
                 case 5:
                     if (MyActions.onCreateMagic != null)
                     {
-                        magic = MyActions.onCreateMagic(0);
-                        magicSkills.Add(magic);
-                        uiManager.ShowMagicToggles();
+                        if (prefabId == 0 || prefabId == 5 || prefabId == 6)
+                            ActivateNewSkill(5);
+
+                        else if (prefabId == 1 || prefabId == 2)
+                            ActivateNewSkill(9);
+
+                        else if (prefabId == 3 || prefabId == 4)
+                            ActivateNewSkill(8);
                     }
                     break;
 
                 case 10:
                     if (MyActions.onCreateMagic != null)
                     {
-                        magic = MyActions.onCreateMagic(1);
-                        magicSkills.Add(magic);
-                        uiManager.ShowMagicToggles();
+                        if (prefabId == 0)
+                            ActivateNewSkill(3);
+
+                        else if (prefabId == 1)
+                            ActivateNewSkill(5);
+
+                        else if (prefabId == 2)
+                            ActivateNewSkill(4);
+
+                        else if (prefabId == 3)
+                            ActivateNewSkill(5);
+
+                        else if (prefabId == 4)
+                            ActivateNewSkill(6);
+
+                        else if (prefabId == 5 || prefabId == 6)
+                            ActivateNewSkill(7);
                     }
                     break;
             }
         }
+    }
+
+    public void ActivateNewSkill(int magicId)
+    {
+        Magic magic;
+        magic = MyActions.onCreateMagic(magicId);
+        magicSkills.Add(magic);
+        uiManager.ShowMagicToggles();
     }
 }

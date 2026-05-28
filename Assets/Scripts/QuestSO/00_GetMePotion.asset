@@ -27,7 +27,7 @@ MonoBehaviour:
   - Go ahead, I'm listening.
   answerAccept: Yes. I shall find it for you.
   answerReject: Sorry, I cloundn't help you.
-  rewardItemId: 4
+  rewardItemId: 2
   rewardExp: 150
   questionInProgress: Have you gotten any potion?
   answerFinish: Here it is.
