@@ -4059,6 +4059,11 @@ MonoBehaviour:
   heroPrefabs:
   - {fileID: 131680, guid: 760512701cab91a4da6a2838609980cf, type: 3}
   - {fileID: 162860, guid: bcefca9cfc5e4ad4c8c67330bafd00b5, type: 3}
+  - {fileID: 7758656126913594455, guid: 0b521647d1d348f45b2d053818c946ce, type: 3}
+  - {fileID: 842334696693666350, guid: 453b1e6352b4c0249913e7de924df83b, type: 3}
+  - {fileID: 1316105468404762664, guid: 7e1a77bfd20792e4093a5407d2aa69c3, type: 3}
+  - {fileID: 1408525790826647734, guid: d57ca5f0908a7104e86c446ce4fa4338, type: 3}
+  - {fileID: 7757003760741019119, guid: 6d2e99d82df02d9489966df7e9aa9287, type: 3}
   curId: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

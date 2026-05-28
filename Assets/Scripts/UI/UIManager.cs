@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private GameObject blackImage;
     [SerializeField] private GameObject inventoryPanel;
+    [SerializeField] private Image invHeroImage;
 
     [SerializeField] private GameObject grayImage;
     [SerializeField] private GameObject itemDialog;
@@ -231,6 +232,8 @@ public class UIManager : MonoBehaviour
                 itemDrag.Image.sprite = hero.InventoryItems[i].Icon;
             }
         }
+
+        invHeroImage.sprite = hero.AvatarPic;
     }
 
     public void SetCurItemInUse(ItemDrag itemDrag, int index)
