@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 16
   itemName: Club
   type: 4
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: 512f6f068ff459c4a9a77ffd39f8976d, type: 3}
   power: 15
   prefabID: 11
   normalPrice: 125

@@ -165,6 +165,7 @@ MonoBehaviour:
   - {fileID: 2128489373528906597, guid: d5b3b54c615e7864b8028a6373594223, type: 3}
   - {fileID: 2348482398088399680, guid: ff85f9fc0cb62f1499ef7baee1c9f5a9, type: 3}
   - {fileID: 6431029462042830768, guid: ecbd530955bc14843a845a366a962017, type: 3}
+  - {fileID: 2372247570326762293, guid: 4f04f16f8fd6b4145a39087cc017b72f, type: 3}
   itemData:
   - {fileID: 11400000, guid: 80710b64fd110d14e92b496d56aba77c, type: 2}
   - {fileID: 11400000, guid: 498bdf4bac0e1bf4a9e4a63e4c0226aa, type: 2}

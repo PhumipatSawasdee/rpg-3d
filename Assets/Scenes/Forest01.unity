@@ -28759,10 +28759,14 @@ PrefabInstance:
     - target: {fileID: 3836780528805748797, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
       propertyPath: boxSelection
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 246632911}
     - target: {fileID: 4025854017384466514, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984471835079912819, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
+      propertyPath: npcPerson.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6984471835079912819, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
       propertyPath: 'npcPerson.Array.data[0]'
@@ -28774,7 +28778,7 @@ PrefabInstance:
       objectReference: {fileID: 608879199}
     - target: {fileID: 7459136910328318335, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
       propertyPath: itemPrefabs.Array.size
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8234392744531788410, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
       propertyPath: enterPoints.Array.size

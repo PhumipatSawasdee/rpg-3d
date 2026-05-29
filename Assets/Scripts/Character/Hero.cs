@@ -97,7 +97,7 @@ public class Hero : Character
     {
         nextExp = level * 30;
 
-        if (exp > nextExp)
+        if (exp >= nextExp)
         {
             level++;
             nextExp = level * 30;
@@ -169,6 +169,6 @@ public class Hero : Character
         Magic magic;
         magic = MyActions.onCreateMagic(magicId);
         magicSkills.Add(magic);
-        uiManager.ShowMagicToggles();
+        UIManager.instance.ShowMagicToggles();
     }
 }

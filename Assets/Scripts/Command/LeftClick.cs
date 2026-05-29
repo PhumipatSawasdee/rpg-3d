@@ -169,7 +169,9 @@ public class LeftClick : MonoBehaviour
     private void ClearEverthing()
     {
         foreach (Toggle t in UIManager.instance.ToggleAvatar)
+        {
             t.isOn = false;
+        }
 
         ClearRingSelection();
         PartyManager.instance.SelectChars.Clear();

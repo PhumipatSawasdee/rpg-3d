@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 13
   itemName: Create Ornate
   type: 7
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: ee3270985ae0b3149b4f4f830197a9a3, type: 3}
   power: 0
   prefabID: 8
   normalPrice: 1500

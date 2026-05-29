@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 11
   itemName: Jewel
   type: 7
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: 6861df57ecc9f6e418735a9e762c58b4, type: 3}
   power: 0
   prefabID: 6
   normalPrice: 300

@@ -31271,6 +31271,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6984471835079912819, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
+      propertyPath: questData.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6984471835079912819, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
       propertyPath: 'npcPerson.Array.data[0]'
       value: 
       objectReference: {fileID: 849538305}
@@ -31282,6 +31286,18 @@ PrefabInstance:
       propertyPath: 'npcPerson.Array.data[2]'
       value: 
       objectReference: {fileID: 1242375917}
+    - target: {fileID: 6984471835079912819, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
+      propertyPath: 'questData.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 93b307be9bc35e248b11b8cb6d0af2a7, type: 2}
+    - target: {fileID: 6984471835079912819, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
+      propertyPath: 'questData.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e3ba2a95a60a0249a17fdd35e15fff6, type: 2}
+    - target: {fileID: 6984471835079912819, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
+      propertyPath: 'questData.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 56e13fae59860ca42bdabaf37780ab0d, type: 2}
     - target: {fileID: 8234392744531788410, guid: ad76e4ecaebc5414f8f75b109f906db8, type: 3}
       propertyPath: 'enterPoints.Array.data[0]'
       value: 

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 11
   itemName: Gem Spike
   type: 7
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: decbaff0dc950344295f513b74bc34b2, type: 3}
   power: 0
   prefabID: 7
   normalPrice: 450

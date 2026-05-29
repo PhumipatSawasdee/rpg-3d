@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HeroData
   prefabId: 0
   curHp: 0
-  magicIds: 
+  magicIds: ffffffffffffffffffffffffffffffff
   inventoryItemIds: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   attackDamage: 0
   defensePower: 0

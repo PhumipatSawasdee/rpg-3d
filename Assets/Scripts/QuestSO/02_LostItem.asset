@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1849f26db78e0f4c83779a223b12e10, type: 3}
+  m_Name: 02_LostItem
+  m_EditorClassIdentifier: Assembly-CSharp::QuestData
+  questId: 2
+  type: 0
+  status: 0
+  questName: Lost Item
+  questDetail: Give Ben a item drop from enemy
+  questItemId: 11
+  questDialogue:
+  - 'Hello, adventures. '
+  - Can you help me something?
+  - There are a group of skelleton store my importance thing from me. Can you get
+    it back for me.
+  answerNext:
+  - Hello Ben.
+  - What happened?
+  answerAccept: Sure. Why not.
+  answerReject: Sorry i need a time.
+  rewardItemId: 10
+  rewardExp: 500
+  questionInProgress: Can you get it for me?
+  answerFinish: Here it is.
+  answerNotFinish: Not yet, please wait.

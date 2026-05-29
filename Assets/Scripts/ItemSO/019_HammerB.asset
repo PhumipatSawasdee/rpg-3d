@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 19
   itemName: HammerB
   type: 4
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: 72f7faa30b23c7d40a270daaa8531087, type: 3}
   power: 55
   prefabID: 14
   normalPrice: 950

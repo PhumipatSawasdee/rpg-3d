@@ -29,7 +29,13 @@ public class QuestManager : MonoBehaviour
             npc.CharInit(UIManager.instance, InventoryManager.instance, PartyManager.instance);
         }
 
+        if (npcPerson.Length <= 0)
+            return;
+
         AddQuestToNPC(npcPerson[0], questData[0]);
+        AddQuestToNPC(npcPerson[0], questData[1]);
+        AddQuestToNPC(npcPerson[0], questData[2]);
+        AddQuestToNPC(npcPerson[0], questData[3]);
     }
 
     private void AddQuestToNPC(Npc npc, QuestData questData)

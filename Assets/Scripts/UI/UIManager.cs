@@ -146,6 +146,7 @@ public class UIManager : MonoBehaviour
     {
         if (PartyManager.instance.SelectChars.Count <= 0) return;
 
+        ClearMagicToggles();
         Character hero = PartyManager.instance.SelectChars[0];
 
         for (int i = 0; i < hero.MagicSkills.Count; i++)
@@ -154,6 +155,20 @@ public class UIManager : MonoBehaviour
             toggleMagic[i].isOn = false;
             toggleMagic[i].GetComponentInChildren<Text>().text = hero.MagicSkills[i].Name;
             toggleMagic[i].targetGraphic.GetComponent<Image>().sprite = hero.MagicSkills[i].Icon;
+        }
+    }
+
+    public void ClearMagicToggles()
+    {
+        if (PartyManager.instance.SelectChars.Count <= 0) return;
+
+        Debug.Log("Clear Magic Toggles");
+        for (int i = 0; i < toggleMagic.Length; i++)
+        {
+            toggleMagic[i].interactable = false;
+            toggleMagic[i].isOn = false;
+            toggleMagic[i].GetComponentInChildren<Text>().text = "";
+            toggleMagic[i].targetGraphic.GetComponent<Image>().sprite = null;
         }
     }
 
@@ -325,15 +340,19 @@ public class UIManager : MonoBehaviour
                 btnNotFinish.SetActive(true);
             }
         }
-        else
+        else if (QuestManager.instance.CheckForQuest(npc, QuestStatus.Reject) != null)
+        {
+            Quest rejectQuest = QuestManager.instance.CheckForQuest(npc, QuestStatus.Reject);
+            Debug.Log(rejectQuest);
+
+            StartQuestDialogue(rejectQuest);
+        }
+        else if (QuestManager.instance.CheckForQuest(npc, QuestStatus.New) != null)
         {
             Quest newQuest = QuestManager.instance.CheckForQuest(npc, QuestStatus.New);
             Debug.Log(newQuest);
 
-            if (newQuest != null)
-            {
-                StartQuestDialogue(newQuest);
-            }
+            StartQuestDialogue(newQuest);
         }
     }
 

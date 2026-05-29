@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 23
   itemName: ShieldD
   type: 2
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: fda51c071d2227b43b9750264066a2c5, type: 3}
   power: 10
   prefabID: 18
   normalPrice: 375

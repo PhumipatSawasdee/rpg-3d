@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 20
   itemName: HammerC
   type: 4
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: 37ad869ca60bf6a40b1fabd6010aa580, type: 3}
   power: 40
   prefabID: 15
   normalPrice: 550

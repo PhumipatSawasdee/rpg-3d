@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6e09e6a81a74454cbf27020336ac4f8, type: 3}
   m_Name: HeroData
   m_EditorClassIdentifier: Assembly-CSharp::HeroData
-  prefabId: 0
-  curHp: 0
-  magicIds: 
-  inventoryItemIds: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  attackDamage: 0
-  defensePower: 0
+  prefabId: 1
+  curHp: 100
+  magicIds: ffffffffffffffffffffffffffffffff
+  inventoryItemIds: 00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0200000001000000
+  attackDamage: 3
+  defensePower: 5
   exp: 0
-  level: 0
-  nextExp: 0
+  level: 1
+  nextExp: 30

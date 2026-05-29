@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 15
   itemName: Bone Axe
   type: 4
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: bbb00ac82f2754e4a82362458ff7885e, type: 3}
   power: 20
   prefabID: 10
   normalPrice: 325

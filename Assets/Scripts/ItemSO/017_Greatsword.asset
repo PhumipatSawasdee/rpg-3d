@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 17
   itemName: Greatsword
   type: 4
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: 9b807929cb6e24148b03210d14b13a3e, type: 3}
   power: 75
   prefabID: 12
   normalPrice: 1500

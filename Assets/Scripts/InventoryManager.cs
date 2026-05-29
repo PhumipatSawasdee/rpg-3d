@@ -19,6 +19,9 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
+        if (QuestManager.instance.NPCPerson.Length <= 0)
+            return;
+
         AddItemShopToNPC(1, 0);
         AddItemShopToNPC(1, 3);
         AddItemShopToNPC(1, 4);

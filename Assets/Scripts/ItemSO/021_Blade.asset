@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 21
   itemName: Blade
   type: 4
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: a7a6360930c0b47479cec97ab0287034, type: 3}
   power: 30
   prefabID: 16
   normalPrice: 400

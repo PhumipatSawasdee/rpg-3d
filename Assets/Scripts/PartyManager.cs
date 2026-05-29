@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Progress;
 
 public class PartyManager : MonoBehaviour
 {
@@ -78,12 +79,23 @@ public class PartyManager : MonoBehaviour
     {
         for (int i = 0; i < members.Count; i++)
         {
+            if (heroData.Length < members.Count)
+            {
+                Debug.LogError($"HeroData array smaller than members count!\nHero Data {heroData.Length} : Member {members.Count}");
+                return;
+            }
+
             Hero hero = (Hero)members[i];
             heroData[i].prefabId = hero.PrefabId;
             heroData[i].curHp = hero.CurHP;
 
             for (int j = 0; j < hero.MagicSkills.Count; j++)
-                heroData[i].magicIds[j] = hero.MagicSkills[j].ID;
+            {
+                if (hero.MagicSkills[j] == null)
+                    heroData[i].magicIds[j] = -1;
+                else
+                    heroData[i].magicIds[j] = hero.MagicSkills[j].ID;
+            }
 
             for (int k = 0; k < hero.InventoryItems.Length; k++)
             {
@@ -98,6 +110,8 @@ public class PartyManager : MonoBehaviour
             heroData[i].exp = hero.Exp;
             heroData[i].level = hero.Level;
             heroData[i].nextExp = hero.NextExp;
+
+            Debug.Log($"Save hero data {i + 1}/{members.Count}");
         }
     }
 
@@ -121,7 +135,8 @@ public class PartyManager : MonoBehaviour
             for (int j = 0; j < heroData[i].magicIds.Count; j++)
             {
                 int magicId = heroData[i].magicIds[j];
-                hero.MagicSkills.Add(new Magic(VFXManager.instance.MagicData[magicId]));
+                if (magicId != -1)
+                    hero.MagicSkills.Add(new Magic(VFXManager.instance.MagicData[magicId]));
             }
 
             for (int k = 0; k < heroData[i].inventoryItemIds.Length; k++)
@@ -188,6 +203,9 @@ public class PartyManager : MonoBehaviour
 
     public void SelectSingleHeroByToggle(int i)
     {
+        if (i < 0 || i >= members.Count)
+            return;
+
         Debug.Log($"Select {i}");
 
         if (selectChars.Contains(members[i]))
@@ -205,11 +223,8 @@ public class PartyManager : MonoBehaviour
 
     public void UnSelectSingleHeroByToggle(int i)
     {
-        /*if (selectChars.Count <= 1)
-        {
-            UIManager.instance.ToggleAvatar[i].isOn = true;
+        if (i < 0 || i >= members.Count)
             return;
-        }*/
 
         if (selectChars.Contains(members[i]))
         {

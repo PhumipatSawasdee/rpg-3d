@@ -162,17 +162,17 @@ public abstract class Character : MonoBehaviour
                 if (npc.IsShopKeeper)
                     uiManager.PrepareShopPanel(npc, this.GetComponent<Hero>());
                 else
-                    uiManager.PrepareDialogueBox(npc);
-
-                foreach (Quest quest in npc.QuestToGive)
                 {
-                    if (npc.CheckQuestList(QuestStatus.New) != null || npc.CheckQuestList(QuestStatus.InProgress) != null)
+                    foreach (Quest quest in npc.QuestToGive)
                     {
-                        Debug.Log("Has quest to give");
-                        uiManager.PrepareDialogueBox(npc);
+                        if (npc.CheckQuestList(QuestStatus.Reject) != null || npc.CheckQuestList(QuestStatus.New) != null || npc.CheckQuestList(QuestStatus.InProgress) != null)
+                        {
+                            Debug.Log("Has quest to give");
+                            uiManager.PrepareDialogueBox(npc);
+                        }
+                        else
+                            Debug.Log("Not has quest to give");
                     }
-                    else
-                        Debug.Log("Not has quest to give");
                 }
             }
             else

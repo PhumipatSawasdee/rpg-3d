@@ -32,7 +32,7 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < Random.Range(0, 3); i++)
             {
                 int randomItem = Random.Range(0, dropItemIds.Count);
-                InventoryManager.instance.AddItem(e, randomItem);
+                InventoryManager.instance.AddItem(e, dropItemIds[randomItem]);
             }
         }
     }

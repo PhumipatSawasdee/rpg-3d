@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 24
   itemName: Staff
   type: 4
-  icon: {fileID: 21300000, guid: eef2179ab2e71114c8aa343a082aa959, type: 3}
+  icon: {fileID: 21300000, guid: 7338e109e20420347be3e96ceefe448a, type: 3}
   power: 80
   prefabID: 19
   normalPrice: 2500
